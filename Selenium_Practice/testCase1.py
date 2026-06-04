@@ -1,15 +1,23 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions
+
 
 driver = webdriver.Chrome()
 driver.maximize_window()
 driver.get("http://automationexercise.com")
+wait = WebDriverWait(driver, 15)
+
+#To check Home page
 
 if driver.title == "Automation Exercise":
     print("Home page is loaded successfully")
 else:
     print("Home page is not loaded")
 
+
+#To signup using name and email. 
 signupBut = driver.find_element(By.XPATH,value='//*[@id="header"]/div/div/div/div[2]/div/ul/li[4]/a')
 signupBut.click()
 
@@ -23,22 +31,23 @@ name = driver.find_element(By.XPATH,value="//input[@name='name']")
 name.send_keys("messi")
 
 email = driver.find_element(By.XPATH,value='//*[@id="form"]/div/div/div[3]/div/form/input[3]')
-email.send_keys("messi104@gmail.com")
+email.send_keys("messi610@gmail.com")
 
 signup = driver.find_element(By.XPATH,value="//button[contains(text(),'Signup')]")
 signup.click()
 
-password = driver.find_element(By.XPATH,value="//input[@id='password']")
-password.send_keys("messi10")
 
-firstName = driver.find_element(By.XPATH,value="//input[@id='first_name']")
-firstName.send_keys("messi")
+#Filling user details for signup the user. Here Used both xpath and css Selectors and used explicit wait for password
+password = wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//input[@id='password']"))).send_keys("messi10")
+
+firstname = driver.find_element(By.CSS_SELECTOR,"#first_name")
+firstname.send_keys("messi")
 
 lastName = driver.find_element(By.XPATH,value="//input[@id='last_name']")
 lastName.send_keys("10")
 
-address = driver.find_element(By.XPATH,value="//input[@id='address1']")
-address.send_keys("10,carstreet")
+address = driver.find_element(By.CSS_SELECTOR,"#address1")
+address.send_keys("10,car street")
 
 state = driver.find_element(By.XPATH,value="//input[@id='state']")
 state.send_keys("tamilnadu")
@@ -46,7 +55,7 @@ state.send_keys("tamilnadu")
 city = driver.find_element(By.XPATH,value="//input[@id='city']")
 city.send_keys("salem")
 
-zipcode = driver.find_element(By.XPATH,value="//input[@id='zipcode']")
+zipcode = driver.find_element(By.CSS_SELECTOR,"#zipcode")
 zipcode.send_keys("123456")
 
 mn = driver.find_element(By.XPATH,value="//input[@id='mobile_number']")
@@ -55,33 +64,37 @@ mn.send_keys("1234567890")
 createBut = driver.find_element(By.XPATH,value="//button[contains(text(),'Create Account')]")
 createBut.click()
 
-successText = driver.find_element(By.XPATH,value='//*[@id="form"]/div/div/div/h2/b')
+successText = wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//*[@id='form']/div/div/div/h2/b")))
 if successText.is_displayed:
     print("Account created")
+    driver.save_screenshot("Screenshots/TestCase1_AccountCreated.png")
 else:
     print("Account not created")
 
 continueBut = driver.find_element(By.XPATH,value='//*[@id="form"]/div/div/div/div/a')
 continueBut.click()
 
-logmess = driver.find_element(By.XPATH,value='//*[@id="header"]/div/div/div/div[2]/div/ul/li[10]/a')
+logmess = wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//div[@class='col-sm-8']/div/ul/child::li[10]/a")))
 if logmess.text == "Logged in as messi":
     print("Message displayed")
+    driver.save_screenshot("Screenshots/TestCase1_MessageDisplayed.png")
 else:
     print("Message not displayed")
 
 delBut = driver.find_element(By.XPATH,value='//*[@id="header"]/div/div/div/div[2]/div/ul/li[5]/a')
-delBut.click()
+driver.execute_script("arguments[0].click();",delBut)
 
-delmess = driver.find_element(By.XPATH,value='//*[@id="form"]/div/div/div/h2/b')
-if delmess.isDisplayed():
+delmess = wait.until(expected_conditions.visibility_of_element_located((By.XPATH,"//*[@id='form']/div/div/div/h2/b")))
+if delmess.is_displayed:
     print("Account Deleted")
+    driver.save_screenshot("Screenshots/TestCase1_AccountDeleted.png")
 else:
     print("Account not deleted")
 
 conbut = driver.find_element(By.XPATH,value='//*[@id="form"]/div/div/div/div/a')
 conbut.click()
 
+driver.close()
 
 
 

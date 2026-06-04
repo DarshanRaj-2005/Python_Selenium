@@ -1,0 +1,11 @@
+Explicit Wait:
+wait = webdriverwait(driver,10)
+wait.until(expected_conditions.visibility_of_element_located(By.XPATH("")))
+
+
+Fluent Wait:
+wait = webdriverwait(driver,timeouts=30,poll_frequency=5,ignored_expections=[no such element found])
+
+
+Implicit Wait
+driver.implicitly_wait(driver,10)
