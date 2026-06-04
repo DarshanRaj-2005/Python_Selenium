@@ -1,0 +1,33 @@
+Browser Commands:
+
+driver.get()
+driver.title() -> to get page title
+driver.close() -> to close the Browser
+driver.quit() -> close all the Browser
+driver.current_url() -> get current url of the page
+driver.page_source() -> to get html code of that page
+
+
+Navigate commands:
+
+driver.forward()
+driver.back()
+driver.refresh()
+
+
+WebElement:
+
+clear 
+click
+text
+is_selected
+is_enabled
+is_displayed
+size
+value_of_css_property
+location
+submit
+get_attribute
+tag_name
+send_keys
+save_screenshot
