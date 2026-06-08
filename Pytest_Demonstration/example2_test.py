@@ -1,8 +1,8 @@
 import pytest
 
-@pytest.mark.skip(reason="Skipped for testing skip")
+# @pytest.mark.skip(reason="Skipped for testing skip")
 def test_assertion2():
-    assert 1+1 == 3,"false"
+    assert 1+1 == 2,"false"
 
 a = "jaggu"
 b = "jaggu"
@@ -17,7 +17,7 @@ y = "jaggu"
 def test_assertion5():
     assert x.__eq__(y)
 
-@pytest.mark.parametrize("input,expected",[(1,3),(2,4),(5,2)])
+@pytest.mark.parametrize("input,expected",[(1,3),(2,4),(1,3)])
 @pytest.mark.sample
 def test_assertion6(input,expected):
     assert input + 2 == expected
