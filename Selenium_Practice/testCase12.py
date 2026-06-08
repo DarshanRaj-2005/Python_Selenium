@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-from Actions import click
 import time
 
 try:
@@ -16,7 +15,8 @@ try:
     assert driver.title == "Automation Exercise", "Home page is not reached."
     print("Home page is reached.")
 
-    click(driver, (By.XPATH, "//a[@href = \"/products\"]"))
+    element = driver.find_element(By.XPATH, "//a[@href = \"/products\"]")
+    driver.execute_script("arguments[0].click();",element)
 
     # assert "products" in driver.title, "All Products Page is not reached."
     print("All Products Page is reached")
