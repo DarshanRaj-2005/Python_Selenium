@@ -12,12 +12,12 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 def test_sample(items,url):
     if items == "chrome":
         chrome_options = ChromeOptions()
-        # chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--headless")
         driver = wb.Chrome(options=chrome_options)
         
     elif items == "firefox":
         firefox_options = FirefoxOptions()
-        # firefox_options.add_argument("--headless")
+        firefox_options.add_argument("--headless")
         driver = wb.Firefox(options=firefox_options)
     
     driver.get(url)
