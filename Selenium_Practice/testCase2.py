@@ -6,7 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 try:
     driver = webdriver.Chrome();
     wait = WebDriverWait(driver, 10)
-    driver.maximize_window();
     driver.get("https://automationexercise.com/")
 
     assert driver.title == "Automation Exercise", "Home page title mismatch"

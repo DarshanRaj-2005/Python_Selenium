@@ -5,7 +5,6 @@ from selenium.webdriver.support import expected_conditions
 
 
 driver = webdriver.Chrome()
-driver.maximize_window()
 driver.get("http://automationexercise.com")
 wait = WebDriverWait(driver, 15)
 
