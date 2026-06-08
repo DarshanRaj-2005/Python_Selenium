@@ -2,9 +2,16 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.chrome.options import Options
 
+chrome_options = Options()
+chrome_options.add_argument("--headless=new") 
+chrome_options.add_argument("--disable-gpu")
+chrome_options.add_argument("--window-size=1920,1080")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
 
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(options=chrome_options)
 driver.get("http://automationexercise.com")
 wait = WebDriverWait(driver, 15)
 
@@ -30,7 +37,7 @@ name = driver.find_element(By.XPATH,value="//input[@name='name']")
 name.send_keys("messi")
 
 email = driver.find_element(By.XPATH,value='//*[@id="form"]/div/div/div[3]/div/form/input[3]')
-email.send_keys("messi610@gmail.com")
+email.send_keys("messi9910@gmail.com")
 
 signup = driver.find_element(By.XPATH,value="//button[contains(text(),'Signup')]")
 signup.click()
