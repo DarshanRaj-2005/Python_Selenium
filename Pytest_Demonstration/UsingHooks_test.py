@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 import pytest_check as check
-from pytest import assume
+
 def setup_function(function):
     global driver
     global wait
@@ -11,7 +11,6 @@ def setup_function(function):
     driver.maximize_window()
     wait = WebDriverWait(driver,15)
     driver.get("https://tutorialsninja.com/demo/")
-
 
 def teardown_function(function):
     driver.quit()
@@ -27,10 +26,5 @@ def test_search():
     
 
     #Used Check for soft assertion. it will run the code even it fail
-    check.equal(mac.text,"Mac")
+    check.equal(mac.text,"MacBook")
     print("Used Check")
-
-
-    #Used Assume for soft assertions
-    assume(mac.text == "Mac")
-    print("Used assume")

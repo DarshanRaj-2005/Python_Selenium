@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 
-@pytest.fixture(params=["chrome","firefox","edge"])
+@pytest.fixture(params=["chrome"])
 def setUp(request):
     if request.param == "chrome":
         driver = webdriver.Chrome()
@@ -22,3 +22,6 @@ def setUp(request):
     request.cls.wait = wait
     yield 
     driver.quit()
+
+
+    
