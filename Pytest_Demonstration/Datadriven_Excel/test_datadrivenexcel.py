@@ -6,7 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from utilitie import logCreater
 
-@pytest.mark.parametrize("username,password",excelreader.getdata("Excelfiles/logindata.xlsx","Sheet1"))
+@pytest.mark.parametrize("username,password",excelreader.getdata("C:\\Users\\dhars\\Documents\\Python_Selenium\\Pytest_Demonstration\\Datadriven_Excel\\Excelfiles\\logindata.xlsx","Sheet1"))
 class Testlogin:
     logger = logCreater.log_generator()
     def test_login(self,username,password):
