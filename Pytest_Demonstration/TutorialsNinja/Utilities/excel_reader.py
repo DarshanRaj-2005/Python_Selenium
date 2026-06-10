@@ -2,7 +2,7 @@ import openpyxl
 
 def get_data(filename, sheet_name):
     data = []
-    workbook = openpyxl.load_workbook("C:\Users\dhars\Documents\Python_Selenium\Pytest_Demonstration\TutorialsNinja\DataFiles"+filename)
+    workbook = openpyxl.load_workbook("C:/Users/dhars/Documents/Python_Selenium/Pytest_Demonstration/TutorialsNinja/DataFiles"+filename)
     sheet = workbook[sheet_name]
     total_rows = sheet.max_row
     total_cols = sheet.max_column
