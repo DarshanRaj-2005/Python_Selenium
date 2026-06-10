@@ -10,3 +10,6 @@ class BaseActions:
     
     def visibilityWait(self,element):
         self.wait.until(ec.visibility_of_element_located(element))
+    
+    def gettext(self,element):
+        return self.driver.find_element(*element).text

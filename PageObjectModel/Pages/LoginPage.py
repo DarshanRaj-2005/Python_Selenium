@@ -10,5 +10,7 @@ class LoginPage:
     passWord = (By.XPATH,"//*[@id='input-password']")
     submitBtn = (By.XPATH,"//*[@id='content']/div/div[2]/div/form/input")
     logout = (By.XPATH,"//*[@id='top-links']/ul/li[2]/ul/li[5]/a")
+    searchBar = (By.XPATH,"//*[@id='search']/input")
+    searchBtn = (By.XPATH,"//*[@id='search']/span/button")
 
 

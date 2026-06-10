@@ -4,6 +4,10 @@ from Actions.BaseActions import BaseActions
 
 class LoginActions(BaseActions):
 
+    def __init__(self,driver,wait):
+        self.driver = driver
+        self.wait = wait
+
     def login(self):
         self.jsclick(LoginPage.myacc)
         self.jsclick(LoginPage.login)
